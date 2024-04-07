@@ -18,5 +18,6 @@ public class SumOfNo_Q3 {
             sum+=i;
         }
         System.out.println("The Sum of the range : ("+small+"-"+lar+") is = "+sum);
+        sc.close();
     }
 }
