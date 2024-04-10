@@ -1,0 +1,41 @@
+//W.A.P to Get Bit of a number (In Bit Manipulation)
+package Java;
+import java.util.Scanner;
+public class GetBit_Q24 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number in Decimal form: ");
+        int d=sc.nextInt();
+        System.out.println(d+" in Binary: "+decimalToBinary(d));
+        System.out.println("Enter the position of the bit which you want to get(O based positioning): ");
+        int pos=sc.nextInt();
+        int bitMask=1<<pos;
+        if((bitMask&d)==0) {
+            System.out.println("The bit is: "+0);
+        }else{
+            System.out.println("The bit is : "+1);
+        }
+
+        sc.close();
+    }
+    public static  int decimalToBinary(int decimal) {
+        StringBuilder sb=new StringBuilder();
+        int temp=decimal;
+        while(temp!=0) {
+            int r=temp%2;
+            sb.append(r);
+            temp/=2;
+        }
+        int n=sb.length();
+        for(int i=0;i<n/2;i++) {
+            char first=sb.charAt(i);
+            char last=sb.charAt(n-i-1);
+            sb.setCharAt(i,last);
+            sb.setCharAt(n-i-1,first);
+        }
+        String str=sb.toString();
+        int ans=Integer.parseInt(str);
+        return ans;
+    }
+    
+}
